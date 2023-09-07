@@ -1,0 +1,63 @@
+Round 1
+TAS_1 VS TAS_3
+TASETKİ: 3.125
+TASETKİ: 3.125
+Kazanan: BERABERE
+-------------------------------
+Round 2
+KAGİT_14 VS MAKAS_9
+KAGİTETKİ: 1.25
+MAKASETKİ: 5.0
+Kazanan: MAKAS_14
+-------------------------------
+Round 3
+MAKAS_6 VS MAKAS_8
+MAKASETKİ: 3.125
+MAKASETKİ: 3.125
+Kazanan: BERABERE
+-------------------------------
+Round 4
+KAGİT_13 VS KAGİT_14
+KAGİTETKİ: 3.125
+KAGİTETKİ: 3.125
+Kazanan: BERABERE
+-------------------------------
+Round 5
+KAGİT_11 VS KAGİT_11
+KAGİTETKİ: 3.125
+KAGİTETKİ: 3.125
+Kazanan: BERABERE
+-------------------------------
+Round 6
+MAKAS_6 VS MAKAS_8
+MAKASETKİ: 3.125
+MAKASETKİ: 3.125
+Kazanan: BERABERE
+-------------------------------
+Round 7
+KAGİT_13 VS KAGİT_14
+KAGİTETKİ: 3.125
+KAGİTETKİ: 3.125
+Kazanan: BERABERE
+-------------------------------
+Round 8
+TAS_1 VS KAGİT_14
+TASETKİ: 1.25
+KAGİTETKİ: 5.0
+Kazanan: KAGİT_1
+-------------------------------
+Round 9
+TAS_1 VS MAKAS_9
+TASETKİ: 5.0
+MAKASETKİ: 1.25
+Kazanan: TAS_1
+-------------------------------
+Round 10
+TAS_1 VS TAS_3
+TASETKİ: 3.125
+TASETKİ: 3.125
+Kazanan: BERABERE
+-------------------------------
+MÜSABAKA SONUCU
+Kazanan: Bilgisayar 2
+Skor: 70.625
