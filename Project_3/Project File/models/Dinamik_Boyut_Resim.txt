@@ -1,0 +1,56 @@
+--------------------------------------------------------------------------------------------------------
+DİNAMİK BOYUT VE PİKSEL BELİRLEME
+--------------------------------------------------------------------------------------------------------
+
+self.maze = []
+self.wall_coordinates = []
+self.road_coordinates = []
+self.maze_size = 0 # txt dosyasındaki satır veya sütun sayısı
+self.maze_geometry = 600 # 600 piksellik oyun alani
+
+with open(path) as f:
+    contents = f.readlines()
+    for i in range(len(contents)):
+        self.maze_size+=1
+        self.maze.append(contents[i])
+
+self.wall_size_pixel = int(self.maze_geometry / self.maze_size) # labirenti oluşturan her bir duvarın pixel cinsinden alanı
+self.wall_size_geometry = ((self.maze_geometry / self.maze_size)/22, (self.maze_geometry /self.maze_size)/22, (self.maze_geometry / self.maze_size)/22)
+
+self.arayuz = Tk()
+self.arayuz.title("PROBLEM 1")
+self.arayuz.geometry("1000x650")
+self.arayuz.resizable(width=0, height=0)
+self.arayuz.config(bg = "black")
+self.tuval = Canvas(self.arayuz, width=650, height=650)
+self.tuval.grid(row=0, column = 0)
+self.screen = turtle.TurtleScreen(self.tuval)
+
+self.kalem = turtle.Turtle()
+
+for y in range(len(self.maze)):
+    for x in range(len(self.maze[y])):
+        character = self.maze[y][x]
+        x_coordinate = -int(self.maze_geometry/2) + (x*self.wall_size_pixel)
+        y_coordinate =  int(self.maze_geometry/2) - (y*self.wall_size_pixel)
+
+        if character == "X":
+            self.kalem.goto(x_coordinate, y_coordinate)
+            self.kalem.stamp()
+            self.wall_coordinates.append((x_coordinate,y_coordinate))
+        else:
+            self.road_coordinates.append((x_coordinate,y_coordinate))
+self.screen.mainloop()
+--------------------------------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------------------------------
+RESİM DÜZENLEME
+--------------------------------------------------------------------------------------------------------
+img = cv2.imread("images\wall_original.jpg")
+img_2 = cv2.resize(img, (wall_size_pixel,wall_size_pixel))
+cv2.imwrite('images\wall_resize.jpg', img_2)
+img_jpg = Image.open("images\wall_resize.jpg")
+img_jpg.save("images\wall_resize.gif")
+images = ["wall_resize.gif"]
+--------------------------------------------------------------------------------------------------------

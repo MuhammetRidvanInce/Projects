@@ -1,0 +1,54 @@
+
+# Tkinter hesap makinesi
+--------------------------------------------------------------------------------------------------------
+from tkinter import *
+
+root = Tk()
+
+e1 = Entry(root, bg = "darkgrey",
+          borderwidth= 5)
+e1.grid(row = 0, column = 0)
+
+e2 = Entry(root, bg = "darkgrey",
+          borderwidth= 5)
+e2.grid(row = 0, column = 1)
+
+
+def sum():
+    result = "{} + {} = {} ".format(e1.get(), e2.get(),int( e1.get())+int(e2.get()))
+    myLabel = Label(root, text = result)
+    myLabel.grid(row = 2, column = 0, columnspan=2,
+                 bg = "red")
+
+def multiply():
+    result = "{} * {} = {} ".format(e1.get(), e2.get(),int( e1.get())*int(e2.get()))
+    myLabel = Label(root, text = result)
+    myLabel.grid(row = 2, column = 0,columnspan=2,
+                 bg = "red")
+
+
+sumButton = Button(root, text = "Sum", 
+                  command = sum, fg="blue", bg = "Black")
+sumButton.grid(row = 1, column = 0)
+
+multiplyButton = Button(root, text = "Multiply", 
+                  command = multiply, fg="blue", bg = "Black")
+multiplyButton.grid(row = 1, column = 1)
+
+root.mainloop()
+--------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
