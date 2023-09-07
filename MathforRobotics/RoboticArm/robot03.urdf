@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+
+<robot name="pi_robot">
+	<link name="base_link">
+		<visual>
+		    <origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="4 1 0.5"/>
+			</geometry>
+			<material name="Cyan1">
+	       		<color rgba="1 0 0 1.0"/>
+	     	</material>
+		</visual>	
+	</link>
+	
+	
+	<link name="ana_govde_link">
+		<visual>
+		    <origin xyz="0 0 1.25" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.5 0.5 2.5"/>
+			</geometry>
+			<material name="Red">
+	       		<color rgba="0.6 0.3 0.3 1.0"/>
+	     	</material>
+		</visual>	
+	</link>
+
+	<link name="ana_govde_cubuk_link">
+		<visual>
+		    <origin xyz="0 0.4 1.25" rpy="1.57 1.57 0"/>
+			<geometry>
+				<box size="0.1 0.1 0.3"/>
+			</geometry>
+			<material name="Red">
+	       		<color rgba="0.6 0.3 0.3 1.0"/>
+	     	</material>
+		</visual>	
+	</link>
+
+	<link name="ana_govde_donme_link">
+		<visual>
+		    <origin xyz="0 0.6 1.25" rpy="0 1.57 0"/>
+			<geometry>
+				<cylinder radius="0.1" length="0.3"/>
+			</geometry>
+			<material name="Red">
+	       		<color rgba="0.1 0.3 0 1.0"/>
+	     	</material>
+		</visual>	
+	</link>
+
+
+	<joint name="ana_govde_joint" type="fixed">
+    	<parent link="base_link"/>
+    	<child link="ana_govde_link"/>
+    	<origin xyz="0 0 0" rpy="0 0 0"/>
+	
+	</joint>
+
+	<joint name="ana_govde_cubuk_joint" type="prismatic">
+    	<parent link="ana_govde_link"/>
+    	<child link="ana_govde_cubuk_link"/>
+    	<origin xyz="0 0 0" rpy="0 0 0"/>
+        <axis xyz="0 0 1"/>
+		<limit lower="-3.1416" upper="3.1416" effort="10" velocity="3"/>
+	</joint>
+
+	<joint name="ana_govde_donme_joint" type="revolute">
+    	<parent link="ana_govde_cubuk_link"/>
+    	<child link="ana_govde_donme_link"/>
+    	<origin xyz="0 0 0" rpy="0 0 0"/>
+		<axis xyz="1 0 0"/>
+		<limit lower="-3.1416" upper="3.1416" effort="10" velocity="3"/>
+	</joint>
+
+
+
+
+
+
+
+</robot>

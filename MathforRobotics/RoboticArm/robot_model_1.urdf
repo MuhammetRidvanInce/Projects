@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+
+<robot name="pi_robot">
+
+	<!-- * * * Link Definitions * * * -->
+
+ 	<link name="taban_link">
+		<visual>
+		    <origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="3 3 0.1"/>
+			</geometry>
+			<material name="kirmizi">
+	       		<color rgba="1 0 0 1"/>
+	     	</material>
+		</visual>	
+	</link>
+	
+	<link name="ana_cubuk_link">
+		<visual>
+		    <origin xyz="0 0 0.05" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.1 0.1 1"/>
+			</geometry>
+			<material name="gri1">
+	       		<color rgba="1 1 1 1"/>
+	     	</material>
+		</visual>	
+	</link>
+	
+
+ 	<link name="kare_govde_link">
+		<visual>
+		    <origin xyz="0 0 0.05" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.5 0.5 1"/>
+			</geometry>
+			<material name="gri2">
+	       		<color rgba="0.5 0.5 0.5 0"/>
+	     	</material>
+		</visual>	
+	</link>
+	
+	 <link name="silindir1_link">
+		<visual>
+		    <origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<cylinder radius="0.1" length="0.5"/>
+			</geometry>
+			<material name="gri3">
+	       		<color rgba="1 1 1 1"/>
+	     	</material>
+		</visual>	
+	</link>
+	
+	
+	
+	<link name="kol1_link">
+		<visual>
+		    <origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.1 0.1 1"/>
+			</geometry>
+			<material name="turuncu1">
+	       		<color rgba="0.8 0.4 0.2 1.0"/>
+	     	</material>
+		</visual>	
+	</link>
+	
+	<link name="silindir2_link">
+		<visual>
+		    <origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<cylinder radius="0.1" length="0.5"/>
+			</geometry>
+			<material name="gri4">
+	       		<color rgba="1 1 1 1.0"/>
+	     	</material>
+		</visual>	
+	</link>
+	
+
+  	<link name="kol2_link">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 1"/>
+			<geometry>
+				<cylinder radius="0.05" length="1"/>
+			</geometry>
+	     	<material name="turuncu2">
+				<color rgba="0.8 0.4 0.2 1.0"/>
+			</material>
+	   </visual>
+	</link>
+
+	
+	<!-- * * * Joint Definitions * * * -->
+	
+	<joint name="cubuk_joint" type="revolute">
+    	<parent link="taban_link"/>
+    	<child link="ana_cubuk_link"/>
+    	<origin xyz="0 0 0.5" rpy="0 0 0"/>
+		<axis xyz="0 0 1"/>
+		<limit lower="-3.1416" upper="3.1416" effort="10" velocity="3"/>
+	</joint>
+	
+	<joint name="kare_govde_joint" type="fixed">
+    	<parent link="ana_cubuk_link"/>
+    	<child link="kare_govde_link"/>
+    	<origin xyz="0 0 0.5" rpy="0 0 0"/>
+	</joint>
+	
+	<joint name="silindir1_joint" type="revolute">
+    	<parent link="kare_govde_link"/>
+    	<child link="silindir1_link"/>
+    	<origin xyz="0 0 0.6" rpy="0 1.57 0"/>
+		<axis xyz="0 0 1"/>
+		<limit lower="-3.1416" upper="3.1416" effort="10" velocity="3"/>
+	</joint>
+
+	<joint name="kol1_joint" type="fixed">
+    	<parent link="silindir1_link"/>
+    	<child link="kol1_link"/>
+    	<origin xyz="-0.6 0 0" rpy="0 -1.57 0"/>	
+	</joint>
+	
+	<joint name="silindir2_joint" type="revolute">
+    	<parent link="kol1_link"/>
+    	<child link="silindir2_link"/>
+    	<origin xyz="0 0 0.6" rpy="0 1.57 0"/>
+		<axis xyz="0 0 1"/>
+		<limit lower="-3.1416" upper="3.1416" effort="10" velocity="3"/>
+	</joint>
+
+	<joint name="kol2_joint" type="fixed">
+    	<parent link="silindir2_link"/>
+    	<child link="kol2_link"/>
+    	<origin xyz="-0.6 0 0" rpy="0 -1.57 0"/>
+	</joint>
+	
+
+</robot>

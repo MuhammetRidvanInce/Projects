@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+
+<robot name="pi_robot">
+
+	<!-- * * * Link Definitions * * * -->
+
+ 	<link name="base_link">
+		<visual>
+		    <origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="1 1 0.05"/>
+				
+			</geometry>
+			<material name="Cyan1">
+	       		<color rgba="0 0.9 0.9 1.0"/>
+	     	</material>
+		</visual>	
+	</link>
+	
+ 	<link name="ana_govde_link">
+		<visual>
+		    <origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<!-- <cylinder radius="0.25" length="1"/> -->
+				<mesh filename = "alttaban.STL" />
+			</geometry>
+			<material name="Red">
+	       		<color rgba="1 0 0 1.0"/>
+	     	</material>
+		</visual>	
+	</link>
+	
+	<link name="alt_kol_link">
+		<visual>
+		    <origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.2 0.2 1"/>
+			</geometry>
+			<material name="Blue">
+	       		<color rgba="0.4 0.2 1 1.0"/>
+	     	</material>
+		</visual>	
+	</link>
+
+  	<link name="ust_kol_link">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 1"/>
+			<geometry>
+				<cylinder radius="0.05" length="1"/>
+			</geometry>
+	     	<material name="Green">
+				<color rgba="0.4 0.6 0 0"/>
+			</material>
+	   </visual>
+	</link>
+
+	
+	<!-- * * * Joint Definitions * * * -->
+	
+	<joint name="ana_govde_joint" type="revolute">
+    	<parent link="base_link"/>
+    	<child link="ana_govde_link"/>
+    	<origin xyz="0 0 0.5" rpy="0 0 0"/>
+		<axis xyz="0 0 1"/>
+		<limit lower="-3.1416" upper="3.1416" effort="10" velocity="3"/>
+	</joint>
+	
+	<joint name="alt_kol_joint" type="revolute">
+    	<parent link="ana_govde_link"/>
+    	<child link="alt_kol_link"/>
+    	<origin xyz="0.25 0 .8" rpy="0 0.5 0"/>	
+		<axis xyz="0 1 0"/>
+		<limit lower="-3.1416" upper="3.1416" effort="10" velocity="3"/>
+	</joint>
+
+	<joint name="ust_kol_joint" type="revolute">
+    	<parent link="alt_kol_link"/>
+    	<child link="ust_kol_link"/>
+    	<origin xyz="0.25 0 0.8" rpy="0 0.5 0"/>
+		<axis xyz="0 1 0"/>
+		<limit lower="-3.1416" upper="3.1416" effort="10" velocity="3"/>
+	</joint>
+	
+
+	
+	<!-- * * * Joint Definitions * * * 
+	<joint name="ana_govde_joint" type="revolute">
+    	<parent link="base_link"/>
+    	<child link="ana_govde_link"/>
+    	<origin xyz="0 0 0.5" rpy="0 0 0"/>
+		<axis xyz="0 0 1"/>
+		<limit lower="-3.1416" upper="3.1416" effort="10" velocity="3"/>
+	</joint>
+	
+	<joint name="alt_kol_joint" type="revolute">
+    	<parent link="ana_govde_link"/>
+    	<child link="alt_kol_link"/>
+    	<origin xyz="0 0 1" rpy="0 0 0"/>	
+		<axis xyz="0 1 0"/>
+		<limit lower="-3.1416" upper="3.1416" effort="10" velocity="3"/>
+	</joint>
+
+	<joint name="ust_kol_joint" type="revolute">
+    	<parent link="alt_kol_link"/>
+    	<child link="ust_kol_link"/>
+    	<origin xyz="0 0 1" rpy="0 0 0"/>
+		<axis xyz="0 1 0"/>
+		<limit lower="-3.1416" upper="3.1416" effort="10" velocity="3"/>
+	</joint>
+	
+	-->
+	
+	
+	
+	
+	
+	
+
+</robot>
